@@ -1,20 +1,13 @@
 class Solution {
 public:
-    bool isPalindrome(int x) {
-        if( x < 0){
-            return false;
+    void rotate(vector<vector<int>>& matrix) {
+        for( int i=0 ; i<matrix.size() ; i++){
+            for( int j=i ; j<matrix[i].size() ; j++){
+                swap( matrix[i][j] , matrix[j][i] );
+            }
         }
-        long n = x;
-        long rev = 0 ;
-        while ( x != 0){
-            rev = rev * 10 + x % 10;
-            x /= 10;
-        }
-        if( rev == n ){
-            return true;
-        }
-        else{
-            return false;
+        for( int i=0 ; i<matrix.size() ; i++){
+            reverse( matrix[i].begin() , matrix[i].end());
         }
     }
 };
